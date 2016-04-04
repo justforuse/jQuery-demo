@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        textarea{
+            resize:none;
+            vertical-align:top;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script src="jquery.validate.js"></script>
+    <script>
+        $(function(){
+            $.validator.addMethod(
+                    "formula", //验证方法名称
+                    function(value, element, param) {//验证规则
+                        return value == eval(param);
+                    },
+                    '请正确输入计算后的结果'//验证提示信息
+            );
+
+
+            $("#form").validate({
+                rules:{
+                    username:{
+                        required: true,
+                        minlength:3
+                    },
+                    email:{
+                        required:true,
+                        email:true
+                    },
+                    url:"url",
+                    comment: "required",
+                    valcode: {
+                        formula: "7+9"
+                    }
+
+                },
+                messages:{
+                    username: {
+                        required: '请输入用户名',
+                        minlength: '用户名长度至少为3位'
+                    },
+                    email: {
+                        required: '请输入电子邮件',
+                        email: '请检查电子邮件的格式'
+                    },
+                    url: '请检查网址的格式(请以http开头)',
+                    comment: '请输入您的个性签名'
+
+                },
+
+                errorElement :"span",
+                success:function(label){
+                    label.text(" ")
+                            .addClass("success");
+                }
+            });
+
+
+
+
+        })
+
+    </script>
+</head>
+<body>
+<form id="form" action="#" method="get">
+    <fieldset>
+        <legend>注册成为会员</legend>
+        <p>
+            <label for="cusername">用户名</label>
+            <em>*</em><input id="cusername" name="username" size="25" />
+        </p>
+        <p>
+            <label for="cemail">邮箱</label>
+            <em>*</em><input id="cemail" name="email" size="25"  />
+        </p>
+        <p>
+            <label for="curl">个人空间</label>
+            <em>  </em><input id="curl" name="url" size="25"  value="" />
+        </p>
+        <p>
+            <label for="ccomment">个性签名</label>
+            <em>*</em><textarea id="ccomment" name="comment" cols="22"></textarea>
+        </p>
+        <p>
+            <label for="cvalcode">验证码</label>
+            <input id="cvalcode" name="valcode" size="25"  value="" />=7+9
+        </p>
+        <p>
+            <input class="submit" type="submit" value="提交"/>
+        </p>
+    </fieldset>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery.js"></script>
+    <script src="jquery.simplemodal-1.4.4.js"></script>
+    <style>
+        #simplemodal-container a.modalCloseImg{
+            width:25px;
+            height:25px;
+            background-color: red;
+        }
+        #simplemodal-container{
+            border:1px solid red;
+        }
+        #simplemodal-overlay{
+            width:200px;
+            height:300px;
+            border:10px solid green;
+        }
+    </style>
+    <script>
+        $(function(){
+            $.modal("<div>hello simpleModal<button type='button' class='simplemodal-close'>关 闭</button></div>",{
+                "opacity":0.7
+            });
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

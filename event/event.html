@@ -1,0 +1,66 @@
+<script src="../jquery.js"></script>
+<style type="text/css">
+	#div1{
+		position:absolute;
+		border:1px solid black;
+		background:green;
+		width:100px;
+		height:100px;
+		left:50px;
+		top:50px;
+	}
+	#div2{
+		position:absolute;
+		border:1px solid black;
+		background:green;
+		width:100px;
+		height:100px;
+		left:50px;
+		top:300px;
+	}
+	#div3{
+		position:absolute;
+		width:100px;
+		height:100px;
+		top:100px;
+		left:300px;
+		border:1px solid black;
+		background-color:red;
+	}
+</style>
+<input type="text" >
+<div id="div1" class="">
+	
+</div>
+<div id="div2" class="">
+	
+</div>
+<div id="div3" class="">
+	
+</div>
+<script>
+  $("input").keyup(function(e){
+    alert(e.which);
+  })
+
+  $("#div1").click(function(){
+		$(this).animate({left:"300px"}, 3000)
+				.animate({"height":"300px"},2000)
+  });
+
+  $("#div2").click(function(){
+		$(this).animate({left:"300px"}, 3000)
+				.animate({"height":"200px"},2000)
+				.animate({top:"400px",width:"150px"},1000)
+				.fadeOut("slow")
+				.fadeIn();
+  });
+
+  $("#div3").hover(function(){
+		
+		$(this).stop(true).animate({height:"300px"}, 1000)
+					  .animate({width:"200px"}, 1000);  
+  },function(){
+		$(this).stop().animate({height:"100px"},1000);
+  })
+</script>

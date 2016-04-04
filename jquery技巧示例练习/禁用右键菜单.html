@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-2.1.4.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("button").on("click", function(e){
+                var clickId= $(e.target).prop("id");
+                console.log(clickId);
+                if("btn1" == clickId){
+
+                    $(document).bind("contextmenu" , function(e){
+                        console.log("close");
+                        return false;
+                    })
+                }else{
+
+                    $(document).unbind("contextmenu");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="btn1">禁用右键菜单</button>
+    <button id="btn2">启用右键菜单</button>
+</body>
+</html>

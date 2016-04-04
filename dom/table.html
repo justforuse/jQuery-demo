@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery.js" type="text/javascript"></script>
+    <style>
+        textarea{
+            height:100px;
+            max-width:200px;
+        }
+        .even{
+            background-color: skyblue;
+        }
+        .odd{
+            background-color: aquamarine;
+        }
+        .selected{
+            background-color: red;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("tbody>tr:even").addClass("even");
+            $("tbody>tr:odd").addClass(("odd"));
+            //$("tbody>tr:contains('ellen')").addClass(("selected"));
+            $("tbody>tr").click(function(){
+                $(this).addClass("selected").siblings().removeClass('selected');
+            });
+
+            $(":input").keyup(function(){
+                console.log($(':input').val());
+                $("tbody>tr").hide()
+                        .filter(":contains('"+( $(this).val() )+"')")
+                        .show();
+            }).keyup();
+
+            $("#bigger").click(function(){
+                var textSize=$("textarea").css("font-size");
+                var unit=textSize.slice(-2);
+                var sizeNum=parseInt(textSize,10);
+                if(sizeNum>=30){
+                    alert("the max");
+                }else{
+                    $("textarea").css("font-size",sizeNum+2+unit);
+                }
+
+                console.log(textSize);
+                console.log(unit);
+                console.log(sizeNum);
+            });
+
+            $("#smaller").click(function(){
+                var textSize=$("textarea").css("font-size");
+                var unit=textSize.slice(-2);
+                var sizeNum=parseInt(textSize,10);
+
+                $("textarea").css("font-size",sizeNum-2+unit);
+                console.log(textSize);
+                console.log(unit);
+                console.log(sizeNum);
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="text" value="ellen">
+<table>
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>gender</th>
+        <th>address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>ellen</td>
+        <td>male</td>
+        <td>dongning</td>
+    </tr>
+    <tr>
+        <td>jack</td>
+        <td>male</td>
+        <td>new york</td>
+    </tr>
+    <tr>
+        <td>alice</td>
+        <td>female</td>
+        <td>hoston</td>
+    </tr>
+    </tbody>
+</table>
+<button id="bigger">+</button>
+<button id="smaller">-</button><br>
+<textarea>
+    this is a test article
+</textarea>
+</body>
+</html>

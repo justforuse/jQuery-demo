@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="jquery-2.1.4.js"></script>
+	<script>
+		$(function(){
+			$("input").keyup(function(e){
+				if(e.which=="13"){
+					alert($("input").val());
+					alert("回车提交!");
+				}	
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="text">
+</body>
+</html>
