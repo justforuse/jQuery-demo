@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="../jquery.js"></script>
+	<script>
+		;(function($){
+			jQuery.fn.extend({
+				"color":function(value){
+					return this.css("color",value);
+				}
+			})
+		})(jQuery);
+
+		$(function(){
+			$("#btn1").on("click",function(){
+				console.log($(".div1").color());
+			});
+
+			$("#btn2").on("click",function(){
+				$(".div2").color("red");
+			})
+		})
+	</script>
+	<style type="text/css">
+		.div1{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">aaaaaaaaaa</div>
+	<div class="div2">bbbbbbbbbbb</div>
+	<button id="btn1">div1</button>
+	<button id="btn2">div2</button>
+</body>
+</html>
