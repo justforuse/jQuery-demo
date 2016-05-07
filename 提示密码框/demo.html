@@ -4,14 +4,40 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<script src="../jquery.js"></script>
+	<style>
+		input{
+			width:170px;
+			height:15px;
+			vertical-align: middle;
+		}
+		.hint{
+			color:#666;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
 </head>
 <body>
-	<input type="password" placeholder="请输入密码">
-	<button onclick="changeType()">change</button>
+	<form action="" method="get">
+		文本框：<input id="txt" type="text" name="account" placeholder="请输入帐号">
+		<hr>
+		密码框：
+
+		<span>
+			<input id="pwd" type="password" name="password" placeholder="请输入密码"><input id="pwdSpan" type="text" placeholder="请输入密码">
+		</span>
+
+		<button type="submit" onclick="submit()">Submit</button>
+	</form>
 	<script>
-		function changeType(){
-			$("input").attr("type","text");
-		}
+		$(function(){
+			$("#pwdSpan").hide();
+		})
 	</script>
+	<!--[if lte IE 9]>
+		<script src="ie.js"></script>
+	<![endif]-->
+	
 </body>
 </html>
