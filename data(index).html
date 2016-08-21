@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var eLi=$("li");
+			eLi.on("click", function(e){
+				var i=$(this).data("index");
+				console.log("index: " + i);
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	
+</body>
+</html>

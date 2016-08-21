@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	div{
+		font-size:20px;
+	}
+	</style>
+	<script src="../jquery.js"></script>
+	<script>
+	$(function() {
+		//阻止浏览器默认右键点击事件
+		/*document.oncontextmenu = function() {
+			return false;
+		}*/
+		//某元素组织右键点击事件
+		$("div").bind("contextmenu", function(){
+			return false;
+		})
+		$("div").mousedown(function(e) {
+			console.log(e.which);
+			//右键为3
+			if (3 == e.which) {
+				$(this).css({
+					"font-size": "-=2px"
+				});
+			} else if (1 == e.which) {
+				//左键为1
+				$(this).css({
+					"font-size": "+=3px"
+				});
+			}
+		})
+	})
+	</script>
+</head>
+
+<body>
+	<div>
+		div
+	</div>
+</body>
+
+</html>

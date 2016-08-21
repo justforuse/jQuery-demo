@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="jquery.js"></script>
+	<style type="text/css">
+		p{
+			display: inline;
+		}
+	</style>
+	<script>
+		$(function(){
+			$(".hide").click(function(){
+				$("p").hide();
+			});
+			$(".show").click(function(){
+				$("p").show();
+			});
+		})
+	</script>
+</head>
+<body>
+	<span>Title:</span>
+	<p>This is my title</p>
+	<hr>
+	<button class="hide">hide</button>
+	<button class="show">show</button>
+</body>
+</html>
