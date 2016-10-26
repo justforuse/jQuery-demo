@@ -10,9 +10,12 @@
 		$("#container").infinitescroll({
 			navSelector: "#navigation", //页面分页元素--成功后自动隐藏  
 			nextSelector: "#navigation a",
-			itemSelector: ".scroll ",
+			itemSelector: ".scroll",
 			animate: true,
 			maxPage: 3,
+			datatType:"html"
+		}, function(newEle){
+			console.log(newEle);
 		});
 
 	})
@@ -35,7 +38,7 @@
 		</div>
 	</div>
 	<div id="navigation" align="center">
-		<a href="user/list?page=1"></a>
+		<a href="part.html"></a>
 	</div>
 </body>
 

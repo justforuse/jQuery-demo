@@ -1,0 +1,55 @@
+﻿<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<h1>本地file浏览测试时使用firefox或者ie，不要用chrome，webkit核心浏览器无法访问处自身外的本地资源<br />
+静态页作为数据源最好编码为utf-8，要不会乱码<br />
+使用gb2312编码时，动态页输出内容设置下charset为gb2312<br />
+asp/asp.net，其他语言自己找下资料<br />
+response.charset="gb2312"<br />
+Response.Charset="gb2312";
+</h1>
+<script type="text/javascript" src="../jquery.js"></script>
+<script src="jquery.infinitescroll.dev.js"></script>
+<script>
+$(function() {
+	$('#content').infinitescroll({
+		navSelector: '#paging',
+		nextSelector: '#paging a',
+		itemSelector: 'div.item',
+		maxPage: 6,
+		path: function(page) {
+			console.log(page);
+			return page + '.html'
+		}
+	});
+});
+</script>
+<div id="content">
+	<div class="item">
+		第一页内容第一页内容
+		<br> 第一页内容
+		<br>第一页内容
+		<br>第一页内容
+		<br> 第一页内容
+		<br>第一页内容
+		<br>第一页内容
+		<br> 第一页内容
+		<br>第一页内容
+		<br>第一页内容 第一页内容
+		<br>第一页内容
+		<br>第一页内容 第一页内容
+		<br>第一页内容
+		<br>第一页内容 第一页内容
+		<br>第一页内容
+		<br>第一页内容 第一页内容
+		<br>第一页内容
+		<br>第一页内容 第一页内容
+		<br>第一页内容
+		<br>第一页内容 第一页内容
+		<br>第一页内容
+		<br>第一页内容 第一页内容
+		<br>第一页内容
+		<br>第一页内容
+	</div>
+</div>
+<div id="paging">
+	<a href="1"></a>
+</div>
