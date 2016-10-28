@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jquery.js"></script>
+	<script src="../js.cookie.js"></script>
+	<style>
+	#dialog {
+		width: 300px;
+		height: 200px;
+		border: 1px solid #3f3f3f;
+	}
+	</style>
+	<script>
+	$(function() {
+
+		console.log("notShow " + Cookies.get("notShow"));
+		if("true" == Cookies.get("notShow")){
+			$("#dialog").hide();
+		}
+		$("button").on("click", function hideDialog() {
+			$("#dialog").hide();
+			var isCancel = $("#hide")[0].checked;
+			Cookies.set("notShow", isCancel);
+			console.log(Cookies.get("notShow"));
+		})
+
+
+	})
+	</script>
+</head>
+
+<body>
+	<div id="dialog">
+		<form>
+			<p>一些提示信息</p>
+			<p>
+				<label for="hide">
+					<input type="checkbox" id="hide"> 不再提示
+				</label>
+			</p>
+			<button type="button">知道了</button>
+		</form>
+	</div>
+</body>
+
+</html>
