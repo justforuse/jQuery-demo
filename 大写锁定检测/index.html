@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jquery.js"></script>
+	<style>
+	#hint {
+		display: none;
+	}
+	</style>
+	<script>
+	$(function() {
+		$("#text").on("keydown", function(e) {
+			console.log(e);
+			if (e.keyCode >= 65 && e.keyCode <= 90) {
+				if ((e.key.charCodeAt(0) >= 65 && e.key.charCodeAt(0) <= 90 && !e.shiftKey) || (e.key.charCodeAt(0) >= 97 && e.key.charCodeAt(0) <= 122 && e.shiftKey)) {
+					$("#hint").show();
+				} else {
+					$("#hint").hide();
+				}
+			}
+
+		})
+		$(document).on("keydown", function(e){
+			console.log(e);
+			if(e.keyCode == 20){
+				$("#hint").toggle();
+			}
+		})
+	})
+	</script>
+</head>
+
+<body>
+	<input type="text" id="text">
+	<div id="hint">大写锁定打开！！！</div>
+</body>
+
+</html>
