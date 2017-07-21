@@ -38,20 +38,20 @@
 
         .first {
             background-color: lime;
-            margin-left: 50px;
+            margin-left: 30px;
         }
 
         .second {
             background-color: skyblue;
-            margin-left: -50px;
+            margin-left: -30px;
         }
 
         .move-left {
-            margin-left: -50px
+            margin-left: -30px
         }
 
         .move-right {
-            margin-left: 50px;
+            margin-left: 30px;
         }
     </style>
 </head>
@@ -64,14 +64,30 @@
     <script>
         $(function () {
             setTimeout(function () {
-                $(".first").toggleClass("move-left");
-                $(".second").toggleClass("move-right");
+                // $(".first").addClass("move-left");
+                // $(".second").addClass("move-right");
+
+                document.getElementsByClassName("first")[0].classList += " move-left";
+                document.getElementsByClassName("second")[0].classList += " move-right";
             })
 
             setTimeout(function () {
                 setInterval(function () {
-                    $(".first").toggleClass("move-left");
-                    $(".second").toggleClass("move-right");
+                    if(document.getElementsByClassName("first")[0].classList.contains("move-left")){
+                        document.getElementsByClassName("first")[0].classList.remove("move-left");
+                    }else{
+                        document.getElementsByClassName("first")[0].classList.add("move-left") ;
+                    }
+
+                    if(document.getElementsByClassName("second")[0].classList.contains("move-right")){
+                        document.getElementsByClassName("second")[0].classList.remove("move-right");
+                    }else{
+                        document.getElementsByClassName("second")[0].classList.add("move-right") ;
+                    }
+
+
+                    // $(".first").toggleClass("move-left");
+                    // $(".second").toggleClass("move-right");
                 }, 1000)
 
 
